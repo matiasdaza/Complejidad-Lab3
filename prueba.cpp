@@ -12,12 +12,13 @@ int main(void)
   string palabra;
 
  fstream Entrada("archivo_4.tex"); //Se crea variabe para archivo de entrada
- ofstream Salida("Salida.txt"); // Se crea variable para archivo de salida
- ifstream AuxIn; // Se crea variable para archivo auxiliar
+
  while(!Entrada.eof()){
  Entrada>>palabra;
+ if (Entrada.eof())
+   break;
  cout<<palabra<<endl;
- cin>>n;
+
 }
  //Entrada.close(); // Se cierran los archivos
 }

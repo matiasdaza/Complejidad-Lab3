@@ -7,9 +7,9 @@
 using namespace std;
 
 struct nodo{
-  int numero; 
+  int numero;
   int repeticiones;
-  nodo *sig;  
+  nodo *sig;
 };
 
 void crear_lista(nodo *&lista, unsigned int &i, int n){
@@ -17,7 +17,7 @@ void crear_lista(nodo *&lista, unsigned int &i, int n){
   nodo * aux2;  //ele
   bool esta;
   if(lista==NULL) // Se agrega el primer elemento en la lista
-  { 
+  {
     aux2 = new nodo;
     aux2->numero=n;
     aux2->repeticiones=1;
@@ -31,7 +31,7 @@ void crear_lista(nodo *&lista, unsigned int &i, int n){
     aux1=lista;
     esta=false;
     while(true) // Se cuenta la frecuencia de dígitos consecutivos en el archivo cuando el número está en la lista
-    { 
+    {
       if(aux1-> numero == n)
       {
         aux1 -> repeticiones++;
@@ -72,7 +72,7 @@ int divide(unsigned int **datos, int inicio, int fin) //divide el vector usando 
     while( (izquierda < derecha) && (datos[izquierda][1]) <= pivote)
     {
       izquierda++;
-    } 
+    }
     if(izquierda<derecha)
     {
       auxNumero=datos[izquierda][0];
@@ -120,7 +120,7 @@ void frecuencia_mayor(unsigned int largo, unsigned int **datos) //Se muestran la
   }
 }
 void frecuencia(unsigned int largo, unsigned int **datos) //Se muestran las cadenas repetidas al menos una vez
-{ 
+{
   int i;
   for(i=largo;i>=0;i--)
   {
@@ -180,7 +180,7 @@ int main(void)
       ifstream Entrada("archivo_1.tex"); //Se crea variabe para archivo de entrada
       ofstream Salida("Salida.txt"); // Se crea variable para archivo de salida
       ifstream AuxIn; // Se crea variable para archivo auxiliar
-     
+
       //Primera serie de 4 números
       Entrada>>aux[0];
       Entrada>>aux[1];
@@ -233,7 +233,7 @@ int main(void)
 
       k=i;
 
-      quicksort(datos,0,k-1); // Se aplica el metodo de ordenamiento QuickSort para el arreglo 
+      quicksort(datos,0,k-1); // Se aplica el metodo de ordenamiento QuickSort para el arreglo
 
       cout<<"\n Los números que más se repiten son: ";
       frecuencia_mayor(k-1, datos); // Se muestra el numero con mayor frecuencia en el archivo
@@ -294,7 +294,7 @@ int main(void)
           delete auxl;
       }
 
-      quicksort(datos,0,l-1); // Se aplica el metodo de ordenamiento QuickSort para el arreglo 
+      quicksort(datos,0,l-1); // Se aplica el metodo de ordenamiento QuickSort para el arreglo
       cout<<"\nLos numeros que se repiten son:"<<endl<<endl;
       frecuencia(l-1,datos); // Se muestran los numeros en hexadecimal con sus frecuencias respecto al archivo
       break;
@@ -304,11 +304,11 @@ int main(void)
       ifstream Entrada("archivo_3.tex");
       ofstream Salida("Salida3.txt");
       ifstream AuxIn;
-       
+
 
        //Primera serie de 6 números
       while( Entrada.read(aux3,sizeof(aux3)-1) ) //Se separa en bloques de largo 6 y se ingresan al archivo auxiliar
-      { 
+      {
         Salida<<aux3<<endl;
       }
       Entrada.close();
@@ -343,14 +343,14 @@ int main(void)
 
       k=i;
 
-      quicksort(datos,0,k-1); // Se aplica el metodo de ordenamiento QuickSort para el arreglo 
+      quicksort(datos,0,k-1); // Se aplica el metodo de ordenamiento QuickSort para el arreglo
       frecuencia_6(k-1, datos); // Se muestran los numeros en hexadecimal con sus frecuencias respecto al archivo
       break;
     }
-    default: 
+    default:
     {
-      cout<<"Elija opcíon correcta"; 
-      break; 
+      cout<<"Elija opcíon correcta";
+      break;
     }
   }
 }
