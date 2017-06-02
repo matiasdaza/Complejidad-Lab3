@@ -73,9 +73,9 @@ int main(void)
   nodo * lista = NULL;
   nodo * auxl;
 
-  unsigned int i=0, n, j, k, l = 0;
+  unsigned int i=0, n, j, k, l = 0, mayor=0;
   //char opc,letra;
-  string palabra;
+  string palabra, aux;
 
  fstream Entrada("archivo_4.tex"); //Se crea variabe para archivo de entrada
 
@@ -84,16 +84,20 @@ int main(void)
   Entrada>>palabra;
   if (Entrada.eof())
     break;
-  cout<<palabra<<endl;
   crear_lista(lista, i, palabra);
   }
-  cin>>n;
+
   while(lista) // Se copia la lista a un arreglo para luego eliminarla
       {
-      cout<<lista->p<<endl;
-        lista=lista->sig;
-  
+      cout<<lista->p<<" ";
+      cout<<lista->repeticiones<<endl;
+        
+      if(mayor<lista->repeticiones){
+          aux=lista->p;
+          mayor=lista->repeticiones;
       }
-
+      lista=lista->sig;
+      }
+  cout<<"La palabra con mayor frecuencia es: "<<aux<<" frecuencia: "<<mayor<<endl;
  //Entrada.close(); // Se cierran los archivos
 }
