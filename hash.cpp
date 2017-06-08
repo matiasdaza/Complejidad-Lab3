@@ -7,6 +7,7 @@ using namespace std;
 
 struct nodo{
   string palabra;
+  int frecuencia;
   int indicador;
   nodo *sig;
 };
@@ -30,28 +31,26 @@ nodo *crear_lista(nodo *lista, string palabra){
   nodo *r; //Para recorrer la lista.
   q=new nodo; //Para buscar y asignarle un espacio de memoria.
   q->palabra = palabra;
+  q->frecuencia=1;
   q->indicador=posicion(palabra);
   q->sig=NULL; //Cuando se le agrega un dato nuevo, no hay "siguientes"
-  //cout<<q->palabra<<endl;
-  
   if(lista==NULL){
     lista=q;
   }else{
     r=lista; //Guardamos la lista completa en r
     while(r->sig!=NULL && cont==0 ){
       if(r->palabra == q->palabra){
+        r->frecuencia++;
         cont++;
-      //  cout<<"ENTRÓ"<<endl;
       }
       r=r->sig;
     }
     if(r->palabra == q->palabra){ //Se repite la comparación para hacerla con la última posición de la lista
+        r->frecuencia++;
         cont++;
     }
     if(cont==0){
       r->sig=q;
-      //cout<<"Flag"<<endl;
-
     }
 
   }
@@ -59,9 +58,9 @@ nodo *crear_lista(nodo *lista, string palabra){
 }
 
 
-
 int main(void)
 {
+  int cont=0;
   char opc;
   nodo * lista = NULL; // Estoy dandolo el "Primer valor a lista", Lista es la "cabeza" de nuestra lista
   string palabra, aux;
@@ -71,8 +70,9 @@ int main(void)
     lista = crear_lista(lista, palabra);
   }
   while(lista){
-    if(lista->indicador==1){
-      cout<<lista->palabra<<endl;
+    if(lista->indicador==19){
+      cout<<lista->palabra<<" "<<lista->indicador<<" "<<lista->frecuencia<<endl;
+      cont++;
     }
     lista=lista->sig;
   }
