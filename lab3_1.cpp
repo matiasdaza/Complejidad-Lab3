@@ -208,7 +208,7 @@ void mayor_frecuencia(nodo *lista){
 void distintas(nodo *lista){
   nodo *aux;
   aux=lista;
-  int cont; //Para contar las palabras con frecuencia 1
+  int cont = 0; //Para contar las palabras con frecuencia 1
   while(aux!=NULL){
     if(aux->frecuencia==1){
       cont++;
@@ -235,6 +235,7 @@ void buscar_palabra(nodo *lista){
   if(cont==0){
     cout<<"La palabra "<<palabraIn<<" no se encuentra en el archivo"<<endl;
   }
+  palabraIn.clear();
 }
 
 void imp_lista(nodo *cabeza)
