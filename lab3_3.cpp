@@ -55,7 +55,7 @@ void mayor_frecuencia(nodo *lista){
       }
     aux=aux->sig;
   }
-  cout<<"La palabra con frecuencia mayor es: "<<palabramayor<<endl;
+  cout<<"La palabra con mayor frecuencia es: "<<palabramayor<<endl;
   cout<<"y su frecuencia es: "<<mayor<<endl;
 }
 
@@ -86,7 +86,7 @@ void imp_lista(nodo *aux)
 {
   while (aux)
   {
-    cout<<aux->palabra<< "  " <<aux->frecuencia << "  " <<aux->indicador<< endl;
+    cout<<aux->palabra<< "  " <<aux->frecuencia<< endl;
     aux = aux->sig;
   }
   cout << endl;
@@ -147,7 +147,7 @@ int main(void)
     if(opc=='1'){
       buscar_palabra(lista); // Se busca la palabra que escriba el usario
     }
-    else 
+    else
     if(opc=='2'){
       distintas(lista); //Se busca cuantas palabras distintas existen en el texto
     }
@@ -164,14 +164,5 @@ int main(void)
     cout<<"Ingrese la opción que desea: ";
     cin>>opc;
   }
-  
-  while(lista){
-    if(lista->indicador==19){
-      cout<<lista->palabra<<" "<<lista->indicador<<" "<<lista->frecuencia<<endl;
-      cont++;
-    }
-    lista=lista->sig;
-  }
+
 }
-
-
